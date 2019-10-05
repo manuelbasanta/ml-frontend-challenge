@@ -1,0 +1,84 @@
+.search-item {
+    background-color: $white;
+    padding: $small-margin $small-margin 0 $small-margin;
+    
+    a {
+        @extend %remove-styling;
+    }
+
+    .search-item-content {        
+        display: flex;
+        align-items: flex-start;
+        border-bottom: 1px solid $gray-0;
+        color: $gray-3;
+
+        .thumbnail {
+            width: 180px;
+            height: 180px;
+            border-radius: 4px;
+            object-fit: contain;
+            flex: 0 0 auto;
+            margin: 0 $small-margin $small-margin 0;
+        }
+
+        .location {
+            font-size: 12px;
+            color: #999999;
+            text-align: center;
+            flex: 1 1 auto;
+            align-self: stretch;
+            margin-top: $big-margin;
+        }
+    }
+
+    .itemPrice {
+        margin-bottom: $big-margin;
+        margin-top: $small-margin;
+        font-size: 22px;
+        display: flex;
+        align-items: center;
+        
+        img {
+            margin-left: $small-margin;
+        }
+
+        .decimals {
+            font-size: 13px;
+            margin-bottom: 7px;
+        }
+    }
+
+    .itemInfo {
+        width: 500px;
+        font-size: 18px;
+    }
+
+    &:first-of-type {
+        margin-top: $small-margin;
+    }
+
+
+    &:last-of-type {
+        .search-item-content {
+            border: none
+        }
+    }
+}
+
+@media (max-width: $phone-breakpoint) {
+    .search-item {
+        .search-item-content {   
+            align-items: center;
+            flex-direction: column;
+
+            .location {
+                margin-bottom: $small-margin;
+            }
+            .itemInfo {
+                width: 225px;
+            }
+        }
+    }
+
+}
+

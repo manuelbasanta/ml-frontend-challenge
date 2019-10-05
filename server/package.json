@@ -1,0 +1,26 @@
+{
+    "name": "backend-ml-test",
+    "version": "1.0.0",
+    "description": "Server-side app for ml challenge",
+    "main": "index.js",
+    "scripts": {
+        "test": "NODE_ENV=test jest --verbose --runInBand",
+        "start": "NODE_ENV=production node index.js",
+        "watch": "NODE_ENV=development nodemon index.js",
+        "lint": "eslint .",
+        "lint-fix": "eslint . --fix"
+    },
+    "author": "Manuel Basanta",
+    "license": "ISC",
+    "devDependencies": {
+        "eslint": "^6.5.1",
+        "nodemon": "^1.19.3",
+        "jest": "^24.9.0",
+        "supertest": "^4.0.2"
+    },
+    "dependencies": {
+        "axios": "^0.19.0",
+        "dotenv": "^8.1.0",
+        "express": "^4.17.1"
+    }
+}

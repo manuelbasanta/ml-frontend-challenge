@@ -1,0 +1,35 @@
+@import './styles/variables';
+@import './styles/header';
+@import './styles/item';
+@import './styles/item-detail';
+@import './styles/breadcrumbs';
+@import './styles/message';
+@import './styles/loader';
+
+%remove-styling {
+    border: none;
+    text-decoration:none; 
+    &:focus {
+        outline: none;
+    }
+}
+
+* {
+    font-family: "Proxima Nova","Helvetica Neue",Helvetica,Roboto,Arial,sans-serif,sans-serif;
+}
+
+.container {
+    padding: 0 12%;
+}
+
+main {
+    background-color: $gray-0;
+    padding: $small-margin 0;
+    flex: 1 1 auto;
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}

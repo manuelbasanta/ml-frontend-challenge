@@ -1,0 +1,12 @@
+.message {
+    background-color: $white;
+    text-align: center;
+    padding: $big-margin;
+    font-size: 18px;
+    margin-top: $small-margin;
+
+    img {
+        width: 90px;
+        margin: $small-margin;
+    }
+}
