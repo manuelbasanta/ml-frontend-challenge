@@ -11,14 +11,13 @@ const Item = ({
     title,
     id
 }) => {
-    //console.log(formatPrice)
 
     const formatedPrice = () => {
         prices.formatPrice(price.amount)
         return (
             <>
                 {prices.formatPrice(price.amount)}
-                <div className="decimals">{price.decimals === 0 ? '00' : price.decimals}</div>
+                <div className="decimals">{String(price.decimals).padEnd(2, '0')}</div>
             </>
         )
     }

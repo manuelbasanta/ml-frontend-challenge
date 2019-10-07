@@ -1,12 +1,26 @@
 /*
  *
- *   Funciones para formatear la response
- *   de las requests.
+ *   Funciones para formatear las responses
+ *   y validar id.
  *
  */
 
+
+
+
+/*
+ *   Los ids tienen que estar formados de la
+ *   siguiente manera:
+ *   'MLA' + 9 digitos del 0 al 9
+ */
+const validIdRegexp = RegExp(/^MLA\d{9}$/);
+
+const isValidId = id => {
+    return validIdRegexp.test(id);
+};
+
 // Formatear una busqueda por string
-const searchQuery = (unformattedItems, unformattedCategories) => {
+const formatSearchQuery = (unformattedItems, unformattedCategories) => {
 
     const items = unformattedItems.map(item => formatItem(item));
     const categories = formatCategories(unformattedCategories);
@@ -20,7 +34,7 @@ const searchQuery = (unformattedItems, unformattedCategories) => {
 };
 
 // Formatear una busqueda por id
-const idQuery = (unformattedItem, unformattedDescription) => {
+const formatIdQuery = (unformattedItem, unformattedDescription) => {
 
     const item = formatItem(unformattedItem, true);
     item.description = unformattedDescription.plain_text;
@@ -70,7 +84,10 @@ const formatItem = (item, idQuery = false) => {
     return formatedItem;
 };
 
+formatIdQuery;
+
 module.exports = {
-    searchQuery,
-    idQuery
+    formatSearchQuery,
+    formatIdQuery,
+    isValidId
 };

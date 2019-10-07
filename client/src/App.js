@@ -12,12 +12,12 @@ const App = () => {
     const [items, setItems] = useState([])
     const [categories, setCategories] = useState([])
 
-    const headerProps = { setSearchString, searchString, setItems, setCategories }
-    const searchResultsProps = { setSearchString, items, searchString, setItems, setCategories }
+    const headerProps = { setSearchString, searchString }
+    const searchResultsProps = { items, setItems, setCategories }
 
     return (
         <div className="App">
-            <Router >
+            <Router>
                 <Route path="/" render={() => <Header {...headerProps} />} />
                 <MainContainer categories={categories}>
                     <Route exact path="/items" render={(routerInfo) =>

@@ -38,4 +38,15 @@ describe('Buscando productos por id', () => {
         expect(response.body.author).toBeDefined();
         expect(response.body.item).toBeDefined();
     });
+
+    test('el id debe ser valido', async () => {
+
+        const result = await api
+            .get('/api/items/mla628763326')
+            .expect(400);
+
+        expect(result.body.error).toContain('invalid id');
+
+    });
+
 });

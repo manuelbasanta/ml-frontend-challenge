@@ -1,5 +1,5 @@
 import axios from 'axios'
-const baseUrl = '/api/items'
+const baseUrl = 'http://localhost:3001/api/items'
 
 const searchItems = async searchString => {
     const response = await axios.get(`${baseUrl}?q=${searchString}`)

@@ -3,19 +3,14 @@ import logo from '../assets/Logo_ML@2x.png';
 import searchIcon from '../assets/ic_Search.png';
 import { withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import itemsService from '../services/item';
-import Loader from './Loader';
 
 const Header = ({
-    setCategories,
-    setItems,
     history,
     setSearchString,
     searchString
 }) => {
 
     const [newSearchString, setNewSearchString] = useState('')
-    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
         history.location.search === '' && setSearchString('')
@@ -23,21 +18,12 @@ const Header = ({
 
     const handleSubmit = event => {
         event.preventDefault();
-        (!loading && newSearchString !== '' && newSearchString !== searchString) && getSearchResults()
+        (newSearchString !== '' && newSearchString !== searchString) && getSearchResults()
     }
 
     const getSearchResults = async () => {
         setSearchString(newSearchString)
-        setLoading(true)
-        itemsService.searchItems(newSearchString)
-            .then( response => {
-                setLoading(false)
-                setItems(response.items)
-                setCategories(response.categories)
-                history.push(`/items?search=${newSearchString}`)
-            })
-            .catch( err => console.log(err))
-
+        history.push(`/items?search=${newSearchString}`)
     }
 
     return (
@@ -53,7 +39,7 @@ const Header = ({
                         placeholder="Nunca dejes de buscar"
                     />
                     <button type="submit">
-                        { loading ? <Loader size="small"/> : <img src={searchIcon} alt="Buscar"/> }
+                        <img src={searchIcon} alt="Buscar"/>
                     </button>
                 </form>
             </div>
